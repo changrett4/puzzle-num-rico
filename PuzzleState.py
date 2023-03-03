@@ -63,12 +63,13 @@ class PuzzleState():
         puzzle = list(range(9))
         rd.shuffle(puzzle)    
         inversions = 0
-        while inversions%2!=0 and inversions==0:
-            puzzle[0],puzzle[1] = puzzle[1], puzzle[0]
-            for i in range(len(puzzle)):
-                for j in range(i+1,len(puzzle)):
-                    if (puzzle[i]> puzzle[j] and (puzzle[i]!=0 and puzzle[j]!=0)):
-                        inversions+=1        
+        
+        for i in range(len(puzzle)):
+            for j in range(i+1,len(puzzle)):
+                if (puzzle[i]> puzzle[j] and (puzzle[i]!=0 and puzzle[j]!=0)):
+                    inversions+=1        
+        if(inversions%2!=0):
+            puzzle[0],puzzle[len(puzzle)-1] = puzzle[len(puzzle)-1],puzzle[0]
         matrix=[]
         for i in range(0,len(puzzle),3):
             linha = [puzzle[i],puzzle[i+1],puzzle[i+2]]

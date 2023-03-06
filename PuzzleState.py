@@ -13,7 +13,6 @@ class PuzzleState():
         self.parent = parent
         self.move = move
         
-    
     def calculate_manhattan_distance(self,i_initial,i_final,j_inital,j_final):
         return abs(i_initial-i_final)+ abs(j_inital-j_final)
     
@@ -105,16 +104,17 @@ class PuzzleState():
                 print(f"{self.puzzle[i][j]} |",end=" ")
             print()  
             print("-------------")
-    
 
-    def solve_puzzle(self,state):
-        start_puzzle = copy.deepcopy(state)
+
+    def solve_puzzle(self):
+        start_puzzle = copy.deepcopy(self)
         frontier = PriorityQueue()
         frontier.insert_item((0,start_puzzle))
     
         visited = set()
-    
-        while frontier.queue:           
+        #print(frontier.queue)
+        while frontier.queue:
+            #print(frontier.queue)           
             current_puzzle = frontier.pop_item()[1]
             if current_puzzle.puzzle == current_puzzle.final_state:
                 passos = []

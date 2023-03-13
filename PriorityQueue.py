@@ -5,7 +5,7 @@ class PriorityQueue():
     def insert_item(self,item):
         self.queue.append(item)
         position = len(self.queue)-1
-        while position > 0 and self.queue[self.get_father(position)][0] > item[0]:
+        while position >0 and self.queue[self.get_father(position)][0] > item[0]:
             self.queue[self.get_father(position)], self.queue[position] = self.queue[position], self.queue[self.get_father(position)]
             position = self.get_father(position)
         
@@ -29,6 +29,9 @@ class PriorityQueue():
             queue[father],queue[smaller] =queue[smaller],queue[father]
             self.min_heapfy(queue,smaller)             
     
+    
+        
+    
     def pop_item(self):
         element = self.queue[0]
         self.queue[0] = self.queue[len(self.queue)-1]
@@ -38,3 +41,5 @@ class PriorityQueue():
     
     def is_empty(self):
         return self.queue is []
+    
+    

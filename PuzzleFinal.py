@@ -18,3 +18,10 @@ while teste.puzzle != teste.final_state:
                 print(f" move: {solution[i].move} ; cost: {solution[i].heuristic() + i} ;n_passo: {i}")
                 solution[i].print_puzzle()
             teste.puzzle = teste.final_state 
+           
+
+
+
+
+
+
